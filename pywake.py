@@ -15,11 +15,13 @@
 
 import socket
 import sys
+import binascii
 
 __version__ = '0.1.1'
 
 IPV6_DEST = 'ff02::1'
 IPV4_DEST = '255.255.255.255'
+MP_START = binascii.a2b_hex('ffffffffffff')
 
 address_family = {
         6: socket.AF_INET6,
@@ -32,14 +34,12 @@ af2text = {
         socket.AF_INET: 'IPv4',
         }
 
-class MagicPacket(str):
+class MagicPacket(bytes):
     def __new__(self, mac):
-        self.mac = mac.translate(None, '.:-')
-        self.bytemac = self.mac.decode('hex')
+        self.mac = ''.join( (x for x in mac if x not in '.:-') )
+        self.bytemac = binascii.a2b_hex(self.mac)
         return super(MagicPacket, self).__new__(self,
-                'ffffffffffff'.decode('hex') +
-                ''.join([self.bytemac for i in range(16)])
-                )
+                MP_START + self.bytemac * 16)
 
 class PyWake(object):
     def __init__(self, mac, src_ip=None, dst_ip=None, port=9, ipv=0):
@@ -59,12 +59,12 @@ class PyWake(object):
         for res in socket.getaddrinfo(dest, self.port, 
                 address_family[self.ipv], socket.SOCK_DGRAM):
             af, socktype, proto, canonname, sa = res
-            print 'sending %s packet%s to IP %s for MAC %s' % (
+            print('sending %s packet%s to IP %s for MAC %s' % (
                     af2text[af],
                     (' from IP ' + self.src_ip) if self.src_ip else '',
                     sa[0],
                     self.mac
-                    )
+                    ))
             s = socket.socket(af, socktype, proto)
             s.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
             if self.src_ip:
