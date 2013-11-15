@@ -1,3 +1,7 @@
+# PyWake - Python Wake-On-LAN client
+#
+# Copyright 2013 Michal Belica <devel@beli.sk>
+#
 # This file is part of PyWake.
 # 
 # PyWake is free software: you can redistribute it and/or modify
@@ -15,14 +19,16 @@
 
 from distutils.core import setup
 
+with open('README.rst') as file:
+    long_description = file.read()
+
 setup(name='pywake',
         version='0.1.2',
         author='Michal Belica',
         author_email='devel@beli.sk',
         url='https://github.com/beli-sk/pywake',
         description='Python Wake-On-LAN client',
-        long_description="""Python Wake-On-LAN client
-with advanced options and IPv6 capability.""",
+        long_description=long_description,
         classifiers=[
             'Development Status :: 4 - Beta',
             'Environment :: Console',

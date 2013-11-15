@@ -29,7 +29,7 @@ there is a `quick start guide <https://help.github.com/articles/fork-a-repo>`_.
 License
 -------
 
-Written by Michal Belica <devel@beli.sk>
+Copyright 2013 Michal Belica <devel@beli.sk>
 
 ::
 

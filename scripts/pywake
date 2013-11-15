@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 #
+# PyWake - Python Wake-On-LAN client
+#
+# Copyright 2013 Michal Belica <devel@beli.sk>
+#
 # This file is part of PyWake.
 # 
 # PyWake is free software: you can redistribute it and/or modify
