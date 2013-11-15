@@ -23,7 +23,7 @@ with open('README.rst') as file:
     long_description = file.read()
 
 setup(name='pywake',
-        version='0.1.2',
+        version='0.1.3',
         author='Michal Belica',
         author_email='devel@beli.sk',
         url='https://github.com/beli-sk/pywake',

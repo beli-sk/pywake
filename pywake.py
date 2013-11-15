@@ -21,7 +21,7 @@ import socket
 import sys
 import binascii
 
-__version__ = '0.1.2'
+__version__ = '0.1.3'
 
 IPV6_DEST = 'ff02::1'
 IPV4_DEST = '255.255.255.255'
