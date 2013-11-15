@@ -15,6 +15,17 @@ Features
 * IPv6 by default (who uses IPv4 these days anyway)
 * Contains re-usable module for use in other scripts
 
+Locations
+---------
+
+PyWake packages are available from Cheese shop (PyPI)
+at https://pypi.python.org/pypi/pywake
+
+The `project page <https://github.com/beli-sk/pywake>`_ is hosted on Github.
+
+If you've never worked with *git* or contributed to a project on Github,
+there is a `quick start guide <https://help.github.com/articles/fork-a-repo>`_.
+
 License
 -------
 
