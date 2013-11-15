@@ -15,22 +15,24 @@
 # You should have received a copy of the GNU General Public License
 # along with PyWake.  If not, see <http://www.gnu.org/licenses/>.
 
-from pywake import PyWake
+import pywake
+from pywake import __version__
 
 if __name__ == '__main__':
     import argparse
-    parser = argparse.ArgumentParser(description='PyWOL - Wake-On-LAN client')
+    pyw = pywake.PyWake(None)
+    parser = argparse.ArgumentParser(description='PyWake - Wake-On-LAN client')
     parser.add_argument('mac', metavar='MAC', help='MAC address for "magic packet"')
     parser.add_argument('-s', '--src', '--source', dest='src_ip',
             help='source IP address to bind to')
     parser.add_argument('-d', '--dst', '--destination', dest='dst_ip',
-            help='destination IP address')
+            help='destination IP address (default: %s)' % pywake.IPV6_DEST)
     parser.add_argument('-p', '--port', dest='port', type=int, default=9,
-            help='target UDP port (default: 9)')
+            help='target UDP port (default: %d)' % pyw.port)
     group = parser.add_mutually_exclusive_group()
     group.add_argument('-4', '--ipv4', dest='ipv', action='store_const', const=4)
     group.add_argument('-6', '--ipv6', dest='ipv', action='store_const', const=6, default=None)
-    pywol = PyWake(None)
-    parser.parse_args(namespace=pywol)
-    pywol.send_packet()
+    parser.add_argument('-V', '--version', action='version', version='PyWake ' + __version__)
+    parser.parse_args(namespace=pyw)
+    pyw.send_packet()
 

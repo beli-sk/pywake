@@ -16,6 +16,8 @@
 import socket
 import sys
 
+__version__ = '0.1.1'
+
 IPV6_DEST = 'ff02::1'
 IPV4_DEST = '255.255.255.255'
 

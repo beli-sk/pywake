@@ -16,7 +16,7 @@
 from distutils.core import setup
 
 setup(name='pywake',
-        version='0.1.0',
+        version='0.1.1',
         author='Michal Belica',
         author_email='devel@beli.sk',
         url='https://github.com/beli-sk/pywake',
