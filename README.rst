@@ -8,10 +8,10 @@ Features
 
  * No privileges required (sending UDP packets)
  * Advanced configuration options
-   * source IP address
-   * destination IP address
-   * destination UDP port
-   * target MAC address
+   - source IP address
+   - destination IP address
+   - destination UDP port
+   - target MAC address
  * IPv6 by default (who uses IPv4 these days anyway)
  * Contains re-usable module for use in other scripts
 
@@ -19,6 +19,8 @@ License
 -------
 
 Written by Michal Belica <devel@beli.sk>
+
+::
 
     PyWake is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
