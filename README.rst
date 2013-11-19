@@ -26,6 +26,38 @@ The `project page <https://github.com/beli-sk/pywake>`_ is hosted on Github.
 If you've never worked with *git* or contributed to a project on Github,
 there is a `quick start guide <https://help.github.com/articles/fork-a-repo>`_.
 
+Is you find something wrong or know of a missing feature, please
+`create an issue <https://github.com/beli-sk/pywake/issues>`_ on the project
+page. If you find that inconvenient or have some security concerns, you could
+also drop me a line at <devel@beli.sk>.
+
+How to use
+----------
+
+Install
+~~~~~~~
+
+::
+
+    pip install pywake
+
+Examples
+~~~~~~~~
+
+Wake up a MAC with default settings (IPv6 UDP packet to "all nodes" multicast
+address ff02::1 and port 9 - discard)::
+
+    pywake 00:11:22:33:44:55
+
+You may need to specify a source interface (or scope) for the multicast packets
+if there are more possibilities::
+
+    pywake -d ff02::1%eth0 00:11:22:33:44:55
+
+Or use a plain old IPv4 UDP subnet directed broadcast::
+
+    pywake -4 -d 192.168.1.255 00:11:22:33:44:55
+
 License
 -------
 
