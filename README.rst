@@ -8,10 +8,12 @@ Features
 
 * No privileges required (sending UDP packets)
 * Advanced configuration options
-   - source IP address
-   - destination IP address
-   - destination UDP port
-   - target MAC address
+
+   * source IP address
+   * destination IP address
+   * destination UDP port
+   * target MAC address
+
 * IPv6 by default (who uses IPv4 these days anyway)
 * Contains re-usable module for use in other scripts
 
